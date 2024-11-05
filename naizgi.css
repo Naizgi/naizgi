@@ -19,16 +19,17 @@ body {
 
 /* Header Styles */
 header {
-    background: #333;
+    background: linear-gradient(135deg, #0077cc 0%, #005fa3 100%); /* Gradient background */
     color: #fff;
     padding: 20px 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow for depth */
 }
 
 header h1 {
     margin: 0;
     font-size: 2.5rem; /* Larger title for emphasis */
     text-align: center;
+    letter-spacing: 1px; /* Spacing between letters */
 }
 
 nav ul {
@@ -38,33 +39,38 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin-right: 20px;
+    margin-right: 30px; /* Increased margin for spacing */
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s; /* Smooth color transition on hover */
+    padding: 5px 10px; /* Padding for clickable area */
+    border-radius: 5px; /* Rounded links */
+    transition: background 0.3s, color 0.3s; /* Smooth color transition on hover */
 }
 
 nav ul li a:hover {
-    color: #0077cc; /* Change color on hover */
+    background: rgba(255, 255, 255, 0.2); /* Light hover effect */
+    color: #fff; /* Maintain text color on hover */
 }
 
 /* Section Styles */
 section {
-    padding: 50px 0;
+    padding: 60px 0; /* Increased padding for more space */
     background-color: #fff; /* White background for sections */
     margin: 20px 0; /* Spacing between sections */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
 }
 
 h2 {
     margin-bottom: 20px;
     text-align: center; /* Centered section titles */
-    font-size: 2rem; /* Larger section titles */
+    font-size: 2.5rem; /* Larger section titles */
+    color: #0077cc; /* Color for section titles */
+    text-transform: uppercase; /* Uppercase for emphasis */
 }
 
 /* About Section */
@@ -78,9 +84,14 @@ h2 {
 .profile-picture {
     width: 200px; /* Adjust as needed */
     height: auto;
-    margin-right: 20px;
+    margin-right: 30px; /* Increased margin */
     border-radius: 50%; /* Circular profile picture */
-    border: 2px solid #0077cc; /* Border for profile picture */
+    border: 3px solid #0077cc; /* Border for profile picture */
+    transition: transform 0.3s; /* Hover effect on profile picture */
+}
+
+.profile-picture:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
 }
 
 .about-text {
@@ -96,24 +107,41 @@ h2 {
 
 .portfolio-item {
     background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: none; /* No border */
+    border-radius: 10px; /* More rounded corners */
     overflow: hidden;
     margin: 15px; /* Space between portfolio items */
     transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
     width: calc(33% - 30px); /* Responsive width for three items per row */
-    max-width: 300px; /* Limit max width */
+    max-width: 350px; /* Limit max width */
+    position: relative; /* Position for pseudo-element */
+}
+
+.portfolio-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 119, 204, 0.1); /* Overlay effect */
+    opacity: 0;
+    transition: opacity 0.3s; /* Transition for overlay */
 }
 
 .portfolio-item:hover {
     transform: translateY(-5px); /* Lift effect on hover */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+.portfolio-item:hover::before {
+    opacity: 1; /* Show overlay on hover */
 }
 
 .portfolio-item img {
     max-width: 100%;
     height: auto;
-    border-bottom: 1px solid #ccc; /* Divider for image and text */
+    border-bottom: 2px solid #0077cc; /* Divider for image and text */
 }
 
 /* Contact Form Styles */
@@ -121,8 +149,8 @@ form input,
 form textarea {
     width: 100%;
     margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 15px; /* Increased padding for inputs */
+    border: 2px solid #ccc;
     border-radius: 5px; /* Rounded input fields */
     transition: border-color 0.3s; /* Transition for border color */
 }
@@ -133,17 +161,18 @@ form textarea:focus {
 }
 
 form button {
-    padding: 10px 20px;
+    padding: 12px 25px; /* Increased padding for button */
     background: #0077cc;
     color: #fff;
     border: none;
     border-radius: 5px; /* Rounded button */
     cursor: pointer;
-    transition: background 0.3s; /* Smooth background transition */
+    transition: background 0.3s, transform 0.3s; /* Smooth transitions */
 }
 
 form button:hover {
     background: #005fa3; /* Darker background on hover */
+    transform: scale(1.05); /* Slight zoom on hover */
 }
 
 /* Footer Styles */
@@ -152,6 +181,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 20px 0;
+    font-size: 0.9rem; /* Smaller font size for footer */
 }
 
 /* Media Queries for Responsiveness */
