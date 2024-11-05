@@ -58,11 +58,11 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #FF5C93; /* Friendly hover color */
+    color: #FFA500; /* Orange hover color */
 }
 
 .cta-button {
-    background: #FF5C93; /* Friendly CTA color */
+    background: #FFA500; /* Orange CTA color */
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
@@ -72,7 +72,7 @@ nav ul li a:hover {
 }
 
 .cta-button:hover {
-    background: #FF7B9D; /* Darker shade on hover */
+    background: #FFB300; /* Darker shade on hover */
 }
 
 /* Hero Section */
@@ -250,12 +250,12 @@ form input, form textarea {
 }
 
 form input:focus, form textarea:focus {
-    border-color: #FF5C93; /* Change border color on focus */
+    border-color: #FFA500; /* Change border color on focus */
 }
 
 form button {
     padding: 10px 20px;
-    background: #FF5C93; /* Button color */
+    background: #FFA500; /* Button color */
     color: white;
     border: none;
     border-radius: 5px;
@@ -265,7 +265,7 @@ form button {
 }
 
 form button:hover {
-    background: #FF7B9D; /* Darker shade on hover */
+    background: #FFB300; /* Darker shade on hover */
 }
 
 /* Footer Styles */
