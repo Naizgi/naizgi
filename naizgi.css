@@ -23,7 +23,6 @@ header {
     background: #2c3e50; /* Dark blue header */
     color: #ecf0f1; /* Light text color */
     padding: 20px 0;
-    text-align: center;
     position: relative;
     z-index: 1;
 }
@@ -55,9 +54,19 @@ nav ul li a:hover {
     background: rgba(236, 240, 241, 0.2);
 }
 
-/* Main Section Styles */
-main {
-    padding: 40px 0; /* Spacing around main content */
+.cta {
+    background: #0077cc; /* CTA color */
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.cta:hover {
+    background: #005fa3; /* Darker shade on hover */
+    transform: scale(1.05);
 }
 
 /* Hero Section */
@@ -66,6 +75,7 @@ main {
     color: #fff;
     text-align: center;
     padding: 100px 20px; /* Adjust padding for hero section */
+    animation: fadeIn 1s ease-in; /* Animation */
 }
 
 .hero-content {
@@ -98,108 +108,205 @@ main {
     transform: scale(1.05);
 }
 
-/* Portfolio Section */
-.portfolio-container {
-    text-align: center;
+/* About Section */
+.about-container {
+    display: flex;
+    align-items: center;
+    margin: 50px 0;
 }
 
-.portfolio-items {
+.profile-img {
+    width: 150px;
+    border-radius: 50%;
+    margin-right: 30px;
+    animation: slideIn 1s ease-in; /* Animation */
+}
+
+.about-text {
+    max-width: 600px;
+}
+
+.about-text h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.skills {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
+    gap: 15px;
+}
+
+.skills span {
+    background: #0077cc; /* Skill badges color */
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+/* Portfolio Section */
+.portfolio-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
 }
 
 .portfolio-item {
-    background: #fff;
-    border-radius: 10px;
-    margin: 15px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: relative;
-    transition: transform 0.3s, box-shadow 0.3s;
-    max-width: 300px; /* Card width */
-    flex: 1 1 calc(33% - 30px); /* Responsive cards */
+    overflow: hidden; /* Crop overflow for animation */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
 }
 
 .portfolio-item:hover {
-    transform: translateY(-5px); /* Lift effect */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
 }
 
 .portfolio-item img {
-    width: 100%; /* Full width images */
-    height: auto;
+    width: 100%;
+    border-radius: 10px;
 }
 
-.portfolio-info {
-    padding: 15px;
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s;
 }
 
-.portfolio-info h3 {
-    margin: 10px 0;
-    font-size: 1.5rem;
-    color: #333; /* Dark text color */
+.portfolio-item:hover .overlay {
+    opacity: 1; /* Show overlay on hover */
 }
 
-.portfolio-info p {
-    color: #666; /* Lighter text color */
+/* Services Section */
+.service-cards {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.service-card {
+    flex: 1;
+    background: #ecf0f1; /* Light gray background for cards */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Testimonials Section */
+.testimonial-slider {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.testimonial {
+    background: #fff; /* White background for testimonials */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Contact Section */
 .contact-container {
-    max-width: 600px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-form input,
-form textarea {
+.contact-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     width: 100%;
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 2px solid #ccc;
+    max-width: 400px; /* Limit form width */
+}
+
+.contact-container input,
+.contact-container textarea {
+    padding: 10px;
     border-radius: 5px;
-    transition: border-color 0.3s;
+    border: 1px solid #ccc;
+    transition: border 0.3s;
 }
 
-form input:focus,
-form textarea:focus {
-    border-color: #0077cc;
-}
-
-form button {
-    padding: 12px 25px;
-    background: #0077cc;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
-}
-
-form button:hover {
-    background: #005fa3;
-    transform: scale(1.05);
+.contact-container input:focus,
+.contact-container textarea:focus {
+    border-color: #0077cc; /* Change border color on focus */
 }
 
 /* Footer Styles */
 footer {
     background: #2c3e50; /* Dark footer */
-    color: #ecf0f1; /* Light text color */
-    text-align: center;
+    color: #ecf0f1;
     padding: 20px 0;
-    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    display: inline-block;
+    margin-top: 10px;
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.back-to-top:hover {
+    color: #0077cc; /* Change color on hover */
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
-    .portfolio-item {
-        flex: 1 1 calc(50% - 30px); /* Two items per row on tablets */
+    .about-container {
+        flex-direction: column;
+        align-items: center;
     }
-}
 
-@media (max-width: 480px) {
-    .portfolio-item {
-        flex: 1 1 100%; /* One item per row on mobile */
+    .profile-img {
+        margin-bottom: 20px;
+    }
+
+    .service-cards {
+        flex-direction: column;
+    }
+
+    .service-card {
+        margin-bottom: 20px; /* Space between cards */
     }
 }
