@@ -8,7 +8,7 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4; /* Light background for contrast */
+    background-color: #F8F8F9; /* White lilac background for a fresh look */
 }
 
 .container {
@@ -19,7 +19,7 @@ body {
 
 /* Header Styles */
 header {
-    background: linear-gradient(135deg, #0077cc 0%, #005fa3 100%); /* Gradient background */
+    background: linear-gradient(135deg, #111439 0%, #0077cc 100%); /* Gradient from dark blue to light blue */
     color: #fff;
     padding: 20px 0;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow for depth */
@@ -69,7 +69,7 @@ h2 {
     margin-bottom: 20px;
     text-align: center; /* Centered section titles */
     font-size: 2.5rem; /* Larger section titles */
-    color: #0077cc; /* Color for section titles */
+    color: #111439; /* Dark blue color for section titles */
     text-transform: uppercase; /* Uppercase for emphasis */
 }
 
@@ -162,7 +162,7 @@ form textarea:focus {
 
 form button {
     padding: 12px 25px; /* Increased padding for button */
-    background: #0077cc;
+    background: #0077cc; /* Button background color */
     color: #fff;
     border: none;
     border-radius: 5px; /* Rounded button */
@@ -177,7 +177,7 @@ form button:hover {
 
 /* Footer Styles */
 footer {
-    background: #333;
+    background: #111439; /* Dark blue footer */
     color: #fff;
     text-align: center;
     padding: 20px 0;
