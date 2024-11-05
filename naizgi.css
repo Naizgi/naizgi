@@ -25,6 +25,7 @@ header {
     color: #fff;
     padding: 20px 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     position: relative;
@@ -39,6 +40,8 @@ header h1 {
 nav ul {
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
+    margin: 10px 0;
 }
 
 nav ul li {
@@ -78,6 +81,7 @@ nav ul li a:hover {
     align-items: center;
     color: white;
     text-align: center;
+    position: relative;
 }
 
 .hero h2 {
@@ -259,24 +263,53 @@ footer {
 /* Responsive Design */
 @media (max-width: 768px) {
     .portfolio-item, .service-card {
-        width: calc(50% - 30px);
+        width: calc(50% - 30px); /* 2 items per row */
     }
 
     .profile-picture {
-        width: 120px;
+        width: 120px; /* Smaller profile picture on smaller screens */
+    }
+
+    header h1 {
+        font-size: 2rem; /* Smaller header size */
+    }
+
+    .hero h2 {
+        font-size: 2.5rem; /* Smaller hero size */
+    }
+
+    .hero p {
+        font-size: 1.2rem; /* Smaller paragraph size */
     }
 }
 
 @media (max-width: 480px) {
     .portfolio-item, .service-card {
-        width: 100%;
+        width: 100%; /* 1 item per row on small screens */
     }
 
     header h1 {
-        font-size: 2rem;
+        font-size: 1.5rem; /* Further reduction for mobile */
     }
 
     .hero h2 {
-        font-size: 2rem;
+        font-size: 2rem; /* Further reduction for mobile */
+    }
+
+    .hero p {
+        font-size: 1rem; /* Further reduction for mobile */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack navigation items vertically */
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Space out vertical items */
+    }
+
+    form {
+        width: 100%; /* Full-width forms on mobile */
     }
 }
