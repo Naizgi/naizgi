@@ -8,171 +8,165 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #F8F8F9; /* White lilac background for a fresh look */
+    background-color: #F8F8F9; /* White lilac background */
 }
 
+/* Container Styles */
 .container {
-    max-width: 1200px; /* Increased max-width for better layout */
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 20px;
 }
 
 /* Header Styles */
 header {
-    background: linear-gradient(135deg, #111439 0%, #0077cc 100%); /* Gradient from dark blue to light blue */
+    background: linear-gradient(135deg, #111439, #0077cc); /* Header gradient */
     color: #fff;
     padding: 20px 0;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow for depth */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
 header h1 {
-    margin: 0;
-    font-size: 2.5rem; /* Larger title for emphasis */
-    text-align: center;
-    letter-spacing: 1px; /* Spacing between letters */
+    margin-bottom: 10px;
+    font-size: 2.5rem;
 }
 
 nav ul {
     list-style: none;
-    text-align: center; /* Centered navigation */
+    padding: 0;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 30px; /* Increased margin for spacing */
+    display: inline-block;
+    margin: 0 20px;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-    padding: 5px 10px; /* Padding for clickable area */
-    border-radius: 5px; /* Rounded links */
-    transition: background 0.3s, color 0.3s; /* Smooth color transition on hover */
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s;
 }
 
 nav ul li a:hover {
-    background: rgba(255, 255, 255, 0.2); /* Light hover effect */
-    color: #fff; /* Maintain text color on hover */
+    background: rgba(255, 255, 255, 0.2);
 }
 
-/* Section Styles */
-section {
-    padding: 60px 0; /* Increased padding for more space */
-    background-color: #fff; /* White background for sections */
-    margin: 20px 0; /* Spacing between sections */
-    border-radius: 15px; /* More rounded corners */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
-}
-
-h2 {
-    margin-bottom: 20px;
-    text-align: center; /* Centered section titles */
-    font-size: 2.5rem; /* Larger section titles */
-    color: #111439; /* Dark blue color for section titles */
-    text-transform: uppercase; /* Uppercase for emphasis */
+/* Main Section Styles */
+main {
+    padding: 40px 0; /* Spacing around main content */
 }
 
 /* About Section */
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .about-content {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center the content */
-    flex-wrap: wrap; /* Wrap for smaller screens */
+    margin-top: 20px;
 }
 
 .profile-picture {
-    width: 200px; /* Adjust as needed */
+    width: 150px;
     height: auto;
-    margin-right: 30px; /* Increased margin */
-    border-radius: 50%; /* Circular profile picture */
-    border: 3px solid #0077cc; /* Border for profile picture */
-    transition: transform 0.3s; /* Hover effect on profile picture */
+    border-radius: 50%;
+    margin-right: 30px;
+    transition: transform 0.3s;
 }
 
 .profile-picture:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
+    transform: scale(1.1);
 }
 
 .about-text {
-    flex: 1;
+    max-width: 600px;
 }
 
-/* Portfolio Styles */
+/* Portfolio Section */
+.portfolio-container {
+    text-align: center;
+}
+
 .portfolio-items {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Center portfolio items */
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .portfolio-item {
     background: #fff;
-    border: none; /* No border */
-    border-radius: 10px; /* More rounded corners */
+    border-radius: 10px;
+    margin: 15px;
     overflow: hidden;
-    margin: 15px; /* Space between portfolio items */
-    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
-    width: calc(33% - 30px); /* Responsive width for three items per row */
-    max-width: 350px; /* Limit max width */
-    position: relative; /* Position for pseudo-element */
-}
-
-.portfolio-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 119, 204, 0.1); /* Overlay effect */
-    opacity: 0;
-    transition: opacity 0.3s; /* Transition for overlay */
+    transition: transform 0.3s, box-shadow 0.3s;
+    max-width: 300px; /* Card width */
+    flex: 1 1 calc(33% - 30px); /* Responsive cards */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .portfolio-item:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Shadow on hover */
-}
-
-.portfolio-item:hover::before {
-    opacity: 1; /* Show overlay on hover */
+    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .portfolio-item img {
-    max-width: 100%;
+    width: 100%; /* Full width images */
     height: auto;
-    border-bottom: 2px solid #0077cc; /* Divider for image and text */
 }
 
-/* Contact Form Styles */
+.portfolio-info {
+    padding: 15px;
+    text-align: left;
+}
+
+.portfolio-info h3 {
+    margin: 10px 0;
+    font-size: 1.5rem;
+    color: #111439; /* Dark blue title color */
+}
+
+/* Contact Section */
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 form input,
 form textarea {
     width: 100%;
     margin-bottom: 20px;
-    padding: 15px; /* Increased padding for inputs */
+    padding: 15px;
     border: 2px solid #ccc;
-    border-radius: 5px; /* Rounded input fields */
-    transition: border-color 0.3s; /* Transition for border color */
+    border-radius: 5px;
+    transition: border-color 0.3s;
 }
 
 form input:focus,
 form textarea:focus {
-    border-color: #0077cc; /* Focus border color */
+    border-color: #0077cc;
 }
 
 form button {
-    padding: 12px 25px; /* Increased padding for button */
-    background: #0077cc; /* Button background color */
+    padding: 12px 25px;
+    background: #0077cc;
     color: #fff;
     border: none;
-    border-radius: 5px; /* Rounded button */
+    border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s, transform 0.3s; /* Smooth transitions */
+    transition: background 0.3s, transform 0.3s;
 }
 
 form button:hover {
-    background: #005fa3; /* Darker background on hover */
-    transform: scale(1.05); /* Slight zoom on hover */
+    background: #005fa3;
+    transform: scale(1.05);
 }
 
 /* Footer Styles */
@@ -181,27 +175,18 @@ footer {
     color: #fff;
     text-align: center;
     padding: 20px 0;
-    font-size: 0.9rem; /* Smaller font size for footer */
+    font-size: 0.9rem;
 }
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .portfolio-item {
-        width: calc(50% - 30px); /* Two items per row on tablets */
+        flex: 1 1 calc(50% - 30px); /* Two items per row on tablets */
     }
 }
 
 @media (max-width: 480px) {
     .portfolio-item {
-        width: 100%; /* One item per row on mobile */
-    }
-
-    .about-content {
-        flex-direction: column; /* Stack items on mobile */
-        align-items: center; /* Center stack items */
-    }
-
-    .profile-picture {
-        margin-bottom: 20px; /* Space below picture */
+        flex: 1 1 100%; /* One item per row on mobile */
     }
 }
