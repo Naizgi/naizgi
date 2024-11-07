@@ -273,6 +273,36 @@ section {
     margin-bottom: 40px;
 }
 
+.contact-section a {
+    color: #111439;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 0.3s, transform 0.3s ease;
+}
+
+.contact-section a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #FFA500;
+    transition: width 0.3s ease;
+}
+
+.contact-section a:hover {
+    color: #FFA500;
+    transform: translateY(-2px);
+}
+
+.contact-section a:hover::before {
+    width: 100%;
+}
+
+
 form {
     display: flex;
     flex-direction: column;
