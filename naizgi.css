@@ -255,37 +255,46 @@ section {
 }
 
 /* Contact Section */
-.contact-section {
-    background-color: #fff;
+#contact {
+    background-color: #f8f8f9;
     padding: 60px 20px;
     text-align: center;
 }
 
-.contact-section h2 {
+#contact h2 {
     font-size: 2.5rem;
     color: #111439;
     margin-bottom: 20px;
 }
 
-.contact-section p {
-    font-size: 1rem;
+#contact p {
+    font-size: 1.2rem;
     color: #555;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
-.contact-section a {
+.contact-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-list li {
+    margin: 10px 0;
+}
+
+.contact-link {
     color: #111439;
+    font-size: 1.2rem;
     text-decoration: none;
     font-weight: bold;
     position: relative;
-    padding-bottom: 2px;
     transition: color 0.3s, transform 0.3s ease;
 }
 
-.contact-section a::before {
+.contact-link::before {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: -2px;
     left: 0;
     width: 0;
     height: 2px;
@@ -293,15 +302,14 @@ section {
     transition: width 0.3s ease;
 }
 
-.contact-section a:hover {
+.contact-link:hover {
     color: #FFA500;
     transform: translateY(-2px);
 }
 
-.contact-section a:hover::before {
+.contact-link:hover::before {
     width: 100%;
 }
-
 
 form {
     display: flex;
