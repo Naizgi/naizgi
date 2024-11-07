@@ -8,20 +8,20 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4; /* Light background for contrast */
-    color: #333; /* Darker text color for readability */
+    background-color: #f4f4f4;
+    color: #333;
 }
 
 /* Container */
 .container {
-    max-width: 1200px; /* Increased max-width for better layout */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 /* Header Styles */
 header {
-    background: linear-gradient(135deg, #F8F8F9 0%, #111439 100%); /* Gradient background */
+    background: linear-gradient(135deg, #F8F8F9 0%, #111439 100%);
     color: #fff;
     padding: 20px 0;
     display: flex;
@@ -35,10 +35,11 @@ header {
 header h1 {
     margin: 0;
     font-size: 2.5rem;
-    font-weight: bold; /* Increased font weight */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Added text shadow for better visibility */
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+/* Navigation Links */
 nav ul {
     list-style: none;
     display: flex;
@@ -53,26 +54,47 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-weight: bold; /* Increased font weight for links */
-    transition: color 0.3s;
+    font-weight: bold;
+    padding: 5px;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: #FFA500;
+    transition: width 0.3s ease-in-out;
 }
 
 nav ul li a:hover {
-    color: #FFA500; /* Orange hover color */
+    color: #FFA500;
 }
 
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* CTA Button */
 .cta-button {
-    background: #FFA500; /* Orange CTA color */
+    background: #FFA500;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
-    font-size: 1.1rem; /* Increased font size for better visibility */
-    transition: background 0.3s;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+    position: relative;
 }
 
 .cta-button:hover {
-    background: #FFB300; /* Darker shade on hover */
+    background: #FFB300;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Hero Section */
@@ -91,22 +113,22 @@ nav ul li a:hover {
     font-size: 3rem;
     margin-bottom: 10px;
     animation: fadeIn 1s ease;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Added text shadow for better visibility */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 .hero p {
     font-size: 1.5rem;
-    animation: fadeIn 1s ease 0.5s; /* Delay for intro */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Added text shadow for better visibility */
+    animation: fadeIn 1s ease 0.5s;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .hero .cta-button {
-    animation: fadeIn 1s ease 1s; /* Delay for button */
+    animation: fadeIn 1s ease 1s;
 }
 
 /* Section Styles */
 section {
-    padding: 60px 0; /* Increased padding for more space */
+    padding: 60px 0;
 }
 
 /* About Section */
@@ -123,7 +145,7 @@ section {
     height: auto;
     margin-right: 30px;
     border-radius: 50%;
-    border: 3px solid #111439; /* Border for profile picture */
+    border: 3px solid #111439;
 }
 
 .about-text {
@@ -131,14 +153,14 @@ section {
 }
 
 .about-text h3 {
-    font-size: 2rem; /* Increased heading size */
-    color: #111439; /* Dark blue for better visibility */
+    font-size: 2rem;
+    color: #111439;
     margin-bottom: 10px;
 }
 
 .about-text p {
-    font-size: 1rem; /* Normal paragraph size */
-    color: #555; /* Lighter gray for paragraph text */
+    font-size: 1rem;
+    color: #555;
 }
 
 .skills {
@@ -191,13 +213,13 @@ section {
 .portfolio-item h3 {
     text-align: center;
     margin: 10px 0;
-    color: #111439; /* Dark blue for project titles */
+    color: #111439;
 }
 
 .portfolio-item p {
     text-align: center;
     padding: 0 10px 10px;
-    color: #555; /* Light gray for descriptions */
+    color: #555;
 }
 
 /* Services Section */
@@ -215,7 +237,7 @@ section {
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
-    width: 300px; /* Fixed width for service cards */
+    width: 300px;
 }
 
 .service-card:hover {
@@ -224,12 +246,12 @@ section {
 }
 
 .service-card h4 {
-    color: #111439; /* Dark blue for service titles */
+    color: #111439;
     margin: 10px 0;
 }
 
 .service-card p {
-    color: #555; /* Light gray for service descriptions */
+    color: #555;
 }
 
 /* Contact Section */
@@ -250,30 +272,57 @@ form input, form textarea {
 }
 
 form input:focus, form textarea:focus {
-    border-color: #FFA500; /* Change border color on focus */
+    border-color: #FFA500;
 }
 
 form button {
     padding: 10px 20px;
-    background: #FFA500; /* Button color */
+    background: #FFA500;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
-    font-weight: bold; /* Increased font weight for visibility */
+    font-weight: bold;
 }
 
 form button:hover {
-    background: #FFB300; /* Darker shade on hover */
+    background: #FFB300;
 }
 
 /* Footer Styles */
 footer {
-    background: #111439; /* Dark footer */
+    background: #111439;
     color: #fff;
     padding: 20px 0;
     text-align: center;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+footer a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: #FFA500;
+    transition: width 0.3s ease;
+}
+
+footer a:hover {
+    color: #FFA500;
+}
+
+footer a:hover::after {
+    width: 100%;
 }
 
 /* Animations */
@@ -291,40 +340,40 @@ footer {
 /* Responsive Design */
 @media (max-width: 768px) {
     .portfolio-item, .service-card {
-        width: calc(50% - 30px); /* 2 items per row */
+        width: calc(50% - 30px);
     }
 
     .profile-picture {
-        width: 120px; /* Smaller profile picture on smaller screens */
+        width: 120px;
     }
 
     header h1 {
-        font-size: 2rem; /* Smaller header size */
+        font-size: 2rem;
     }
 
     .hero h2 {
-        font-size: 2.5rem; /* Smaller hero size */
+        font-size: 2.5rem;
     }
 
     .hero p {
-        font-size: 1.2rem; /* Smaller paragraph size */
+        font-size: 1.2rem;
     }
 
     .about-text h3, .portfolio-item h3, .service-card h4 {
-        font-size: 1.5rem; /* Reduce heading sizes for better visibility */
+        font-size: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
     .portfolio-item, .service-card {
-        width: 100%; /* 1 item per row on small screens */
+        width: 100%;
     }
 
     header h1 {
-        font-size: 1.5rem; /* Further reduction for mobile */
+        font-size: 1.5rem;
     }
 
     .hero h2 {
-        font-size: 2rem; /* Further reduction for mobile */
+        font-size: 2rem;
     }
 }
