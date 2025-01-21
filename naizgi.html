@@ -6,94 +6,104 @@
     <title>Naizgi Hayilekiros - Portfolio</title>
     <link rel="stylesheet" href="naizgi.css">
     <link rel="icon" type="image/x-icon" href="logo.jpg">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="container">
+    <!-- Header -->
+   <header>
+    <div class="container">
+        <div class="logo">
             <h1>Naizgi Hayilekiros</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <a href="#contact" class="cta-button">Get in Touch</a>
         </div>
-    </header>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="#contact" class="cta-button">Get in Touch</a>
+    </div>
+</header>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h2>Hi, I'm Naizgi</h2>
-            <p>A passionate web developer.</p>
+            <h2>Hi, I'm <span>Naizgi</span></h2>
+            <p>Turning ideas into reality through code and design.</p>
             <a href="#portfolio" class="cta-button">View My Work</a>
         </div>
     </section>
 
-    <section id="about">
+    <!-- About Section -->
+    <section id="about" class="section">
         <div class="container">
             <h2>About Me</h2>
             <div class="about-content">
-                <img src="naizgi.png" alt="Your Picture" class="profile-picture">
+                <img src="naizgi.png" alt="Naizgi Hayilekiros" class="profile-picture">
                 <div class="about-text">
-                    <h3>Undergraduate Student at St. Mary University College</h3>
-                    <p>Hello! My name is Naizgi Hayilekiros, and I am an undergraduate student at St. Mary University College. I am passionate about web development and have gained experience in this field through various projects and courses.</p>
+                    <h3>Undergraduate Student at St. Mary University</h3>
+                    <p>Hello! My name is Naizgi Hayilekiros, and I am an undergraduate student at St. Mary University. I am passionate about web development and have gained experience in this field through various projects and courses.</p>
                     <p>In my free time, I enjoy exploring new technologies and expanding my skills in programming and design.</p>
                 </div>
             </div>
             <div class="skills">
                 <h3>Skills</h3>
                 <div class="skills-icons">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>React</span>
-                    <span>Node.js</span>
-                          <span>php</span>
-                          <span>python</span>
+                    <i class="fab fa-html5" title="HTML5"></i>
+                    <i class="fab fa-css3-alt" title="CSS3"></i>
+                    <i class="fab fa-js" title="JavaScript"></i>
+                    <i class="fab fa-react" title="React"></i>
+                    <i class="fab fa-node" title="Node.js"></i>
+                    <i class="fab fa-php" title="PHP"></i>
+                    <i class="fab fa-python" title="Python"></i>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="portfolio">
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
         <div class="container">
             <h2>Portfolio</h2>
             <div class="portfolio-items">
                 <div class="portfolio-item">
                     <img src="p1.png" alt="Project 1">
-                    <h3>e-commerce web</h3>
-                    <p>This is an e-commerce website that I built.</p>
+                    <h3>E-commerce Web</h3>
+                    <p>An e-commerce website with advanced features.</p>
                 </div>
                 <div class="portfolio-item">
                     <img src="p2.png" alt="Project 2">
-                    <h3>school management</h3>
-                    <p>This project is for the school management system website I developed.</p>
+                    <h3>School Management</h3>
+                    <p>A comprehensive school management system.</p>
                 </div>
                 <div class="portfolio-item">
                     <img src="p3.png" alt="Project 3">
-                    <h3>online cinema</h3>
-                    <p>This project is for the online cinema system website I developed.</p>
+                    <h3>Online Cinema</h3>
+                    <p>An online cinema platform for streaming movies.</p>
                 </div>
-                <!-- Add more portfolio items as needed -->
             </div>
         </div>
     </section>
 
-    <section id="services">
+    <!-- Services Section -->
+    <section id="services" class="section">
         <div class="container">
             <h2>Services</h2>
             <div class="service-cards">
                 <div class="service-card">
+                    <i class="fas fa-code"></i>
                     <h3>Web Development</h3>
                     <p>Creating responsive and user-friendly websites.</p>
                 </div>
                 <div class="service-card">
+                    <i class="fas fa-pencil-ruler"></i>
                     <h3>UI/UX Design</h3>
                     <p>Designing intuitive user interfaces and experiences.</p>
                 </div>
                 <div class="service-card">
+                    <i class="fas fa-lightbulb"></i>
                     <h3>Consultation</h3>
                     <p>Providing expert advice for your tech needs.</p>
                 </div>
@@ -101,21 +111,20 @@
         </div>
     </section>
 
-<section id="contact">
-    <div class="container">
-        <h2>Contact Me</h2>
-        <p>Feel free to reach out through any of the following options:</p>
-        <ul class="contact-list">
-          <li><a href="https://t.me/ye_kiros_lij" target="_blank" class="contact-link">Telegram</a></li>
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>Feel free to reach out through any of the following options:</p>
+            <ul class="contact-list">
+                <li><a href="https://t.me/ye_kiros_lij" target="_blank"><i class="fab fa-telegram"></i> Telegram</a></li>
+                <li><a href="tel:+251932287033"><i class="fas fa-phone"></i> +251932287033</a></li>
+                <li><a href="mailto:minilik71@gmail.com"><i class="fas fa-envelope"></i> minilik71@gmail.com</a></li>
+            </ul>
+        </div>
+    </section>
 
-            <li><a href="tel:+251932287033" class="contact-link">Phone: +251932287033</a></li>
-            <li><a href="mailto:minilik71@gmail.com" class="contact-link">Email: minilik71@gmail.com</a></li>
-        </ul>
-    </div>
-</section>
-
-
-
+    <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2024 Naizgi Hayilekiros. All Rights Reserved.</p>
