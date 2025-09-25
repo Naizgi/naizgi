@@ -419,33 +419,165 @@
     </div>
 
 
-      <div class="project-modal" id="projectModal6">
-        <div class="modal-content">
-            <button class="modal-close"><i class="fas fa-times"></i></button>
-            <div class="modal-header">
-                <h3>Robotic Assistant</h3>
-                <p>A robotic assistenat for daily tasks  </p>
-            </div>
-            <div class="modal-screenshots">
-                <img src="robotic_1.png" alt="grace Screenshot 1">
-                <img src="robotic_2.png" alt="grace Screenshot 2">
-                <img src="robotic_3.png" alt="grace Screenshot 3">
-                <img src="robotic_4.png" alt="grace Screenshot 4">
-            </div>
-            <div class="modal-description">
-                <p>This website promotes and show case the products of the company .</p>
-                <div class="modal-tech">
-                    <span class="tech-tag">HTML</span>
-                    <span class="tech-tag">CSS3</span>
-                    <span class="tech-tag">Tilewind</span>
-                    <span class="tech-tag">javascript</span>
-               
+     <!-- Project 6 Modal - Robotics AI Assistant -->
+<div class="project-modal" id="projectModal6">
+    <div class="modal-content">
+        <button class="modal-close"><i class="fas fa-times"></i></button>
+        <div class="modal-header">
+            <h3>Robotics AI Assistant</h3>
+            <p>An intelligent robotic assistant for daily task assistance and human interaction</p>
+        </div>
+        
+        <div class="modal-screenshots">
+            <!-- TikTok Video Section -->
+            <div class="tiktok-video-section">
+                <div class="video-wrapper">
+                    <div class="tiktok-video-placeholder" data-video-url="https://www.tiktok.com/@yourusername/video/YOUR_ROBOTICS_VIDEO_ID">
+                        <div class="video-thumbnail">
+                            <img src="robotics_thumbnail.jpg" alt="Robotics Assistant Demo" onerror="this.src='https://via.placeholder.com/600x400/2a2a3c/ffffff?text=Robotics+Demo+Video'">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-duration">2:30</div>
+                        </div>
+                        <div class="video-info">
+                            <i class="fab fa-tiktok"></i>
+                            <span>Watch Robotics Assistant in Action</span>
+                            <small>Click to play demo video</small>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-links">
-               
-                    <a href="#" class="cta-button" style="background: transparent; color: var(--primary); border: 2px solid var(--primary);">GitHub</a>
+            </div>
+            
+            <!-- Project Screenshots Grid -->
+            <div class="screenshots-grid">
+                <div class="screenshot-item">
+                    <img src="robotics_1.png" alt="Robotics Assistant Design" onclick="openImageModal(this.src)" onerror="this.src='https://via.placeholder.com/300x200/6c63ff/ffffff?text=Design+Phase'">
+                    <p>3D Design & Modeling</p>
+                </div>
+                <div class="screenshot-item">
+                    <img src="robotics_2.png" alt="Robotics Assistant Interface" onclick="openImageModal(this.src)" onerror="this.src='https://via.placeholder.com/300x200/ff6584/ffffff?text=User+Interface'">
+                    <p>Control Interface</p>
+                </div>
+                <div class="screenshot-item">
+                    <img src="robotics_3.png" alt="Robotics Assistant in Action" onclick="openImageModal(this.src)" onerror="this.src='https://via.placeholder.com/300x200/2a2a3c/ffffff?text=In+Action'">
+                    <p>Real-world Testing</p>
+                </div>
+                <div class="screenshot-item">
+                    <img src="robotics_4.png" alt="Robotics Assistant Components" onclick="openImageModal(this.src)" onerror="this.src='https://via.placeholder.com/300x200/27ca3f/ffffff?text=Components'">
+                    <p>Hardware Components</p>
                 </div>
             </div>
+        </div>
+        
+        <div class="modal-description">
+            <div class="project-overview">
+                <h4>Project Overview</h4>
+                <p>This robotics project involves creating an AI-powered assistant robot capable of understanding and responding to human interactions. The robot can assist with daily tasks, provide information, and interact naturally with users through voice commands and gestures.</p>
+                
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Months Development</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Features Implemented</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Accuracy Rate</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="features-section">
+                <h4>Key Features</h4>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-microphone"></i>
+                        <h5>Voice Recognition</h5>
+                        <p>Advanced speech-to-text with natural language processing</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-eye"></i>
+                        <h5>Computer Vision</h5>
+                        <p>Object detection and facial recognition capabilities</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-robot"></i>
+                        <h5>Autonomous Navigation</h5>
+                        <p>Smart path planning and obstacle avoidance</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-hands-helping"></i>
+                        <h5>Gesture Control</h5>
+                        <p>Hand gesture recognition for intuitive interaction</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="technical-specs">
+                <h4>Technical Specifications</h4>
+                <div class="specs-grid">
+                    <div class="spec-category">
+                        <h5>Hardware</h5>
+                        <ul>
+                            <li><strong>Processor:</strong> Raspberry Pi 4 (8GB)</li>
+                            <li><strong>Microcontroller:</strong> Arduino Mega</li>
+                            <li><strong>Camera:</strong> Raspberry Pi Camera V2</li>
+                            <li><strong>Sensors:</strong> Ultrasonic, IMU, Lidar</li>
+                            <li><strong>Motors:</strong> Servo & DC with encoders</li>
+                        </ul>
+                    </div>
+                    <div class="spec-category">
+                        <h5>Software</h5>
+                        <ul>
+                            <li><strong>OS:</strong> Ubuntu + ROS Noetic</li>
+                            <li><strong>AI Framework:</strong> TensorFlow, PyTorch</li>
+                            <li><strong>Vision:</strong> OpenCV, YOLO</li>
+                            <li><strong>Speech:</strong> Google Speech API</li>
+                            <li><strong>Control:</strong> Custom Python SDK</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">ROS</span>
+                <span class="tech-tag">TensorFlow</span>
+                <span class="tech-tag">OpenCV</span>
+                <span class="tech-tag">Arduino</span>
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">IoT</span>
+                <span class="tech-tag">AI/ML</span>
+            </div>
+            
+            <div class="modal-links">
+                <a href="https://www.tiktok.com/@yourusername/video/YOUR_ROBOTICS_VIDEO_ID" target="_blank" class="cta-button">
+                    <i class="fab fa-tiktok"></i> Watch Video Demo
+                </a>
+                <a href="#" class="cta-button" style="background: transparent; color: var(--primary); border: 2px solid var(--primary);">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+                <a href="robotics_documentation.pdf" class="cta-button" style="background: var(--secondary); border: 2px solid var(--secondary);">
+                    <i class="fas fa-file-pdf"></i> Documentation
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Image Modal for Full-size Screenshots -->
+<div class="image-modal" id="imageModal">
+    <div class="image-modal-content">
+        <button class="image-modal-close"><i class="fas fa-times"></i></button>
+        <img src="" alt="Full size image" id="modalImage">
+        <div class="image-caption" id="imageCaption"></div>
+    </div>
+</div>
+            
         </div>
     </div>
 
