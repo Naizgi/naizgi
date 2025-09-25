@@ -296,6 +296,166 @@ nav a:hover::after {
     }
 }
 
+/* Code Animation Section */
+.code-animation {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40%;
+    max-width: 500px;
+    background: rgba(42, 42, 60, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    z-index: 2;
+}
+
+.code-header {
+    background: var(--dark);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.code-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.code-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.code-dot:nth-child(1) {
+    background: #ff5f56;
+}
+
+.code-dot:nth-child(2) {
+    background: #ffbd2e;
+}
+
+.code-dot:nth-child(3) {
+    background: #27ca3f;
+}
+
+.code-title {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-left: 15px;
+    font-family: monospace;
+}
+
+.code-content {
+    padding: 20px;
+    font-family: 'Courier New', monospace;
+    color: #f8f9fa;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.code-line {
+    margin-bottom: 5px;
+    opacity: 0;
+    animation: typeLine 0.5s forwards;
+}
+
+.code-line:nth-child(1) { animation-delay: 0.5s; }
+.code-line:nth-child(2) { animation-delay: 1s; }
+.code-line:nth-child(3) { animation-delay: 1.5s; }
+.code-line:nth-child(4) { animation-delay: 2s; }
+.code-line:nth-child(5) { animation-delay: 2.5s; }
+.code-line:nth-child(6) { animation-delay: 3s; }
+.code-line:nth-child(7) { animation-delay: 3.5s; }
+.code-line:nth-child(8) { animation-delay: 4s; }
+.code-line:nth-child(9) { animation-delay: 4.5s; }
+.code-line:nth-child(10) { animation-delay: 5s; }
+
+@keyframes typeLine {
+    to {
+        opacity: 1;
+    }
+}
+
+.code-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background: var(--primary);
+    margin-left: 2px;
+    animation: blink 1s infinite;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.code-keyword {
+    color: #ff79c6;
+}
+
+.code-function {
+    color: #50fa7b;
+}
+
+.code-string {
+    color: #f1fa8c;
+}
+
+.code-comment {
+    color: #6272a4;
+}
+
+.code-var {
+    color: #8be9fd;
+}
+
+/* Tech Icons Animation */
+.tech-icons {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    display: flex;
+    gap: 20px;
+    z-index: 2;
+}
+
+.tech-icon {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: bounce 3s infinite ease-in-out;
+    font-size: 1.8rem;
+    color: var(--primary);
+}
+
+.tech-icon:nth-child(1) { animation-delay: 0s; }
+.tech-icon:nth-child(2) { animation-delay: 0.5s; }
+.tech-icon:nth-child(3) { animation-delay: 1s; }
+.tech-icon:nth-child(4) { animation-delay: 1.5s; }
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
 /* About Section */
 .about-content {
     display: grid;
@@ -710,6 +870,24 @@ footer {
     .hero h2 {
         font-size: 2.8rem;
     }
+
+    .code-animation {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 40px;
+    }
+
+    .tech-icons {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        justify-content: center;
+        margin-top: 30px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -754,6 +932,17 @@ footer {
     h2 {
         font-size: 2rem;
     }
+
+    .code-content {
+        height: 150px;
+        font-size: 0.8rem;
+    }
+
+    .tech-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
 }
 
 @media (max-width: 576px) {
@@ -777,5 +966,9 @@ footer {
 
     .contact-list li a {
         justify-content: center;
+    }
+
+    .tech-icons {
+        flex-wrap: wrap;
     }
 }
