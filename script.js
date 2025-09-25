@@ -130,3 +130,78 @@ function initRoboticsVideo() {
         video.currentTime = 0;
     }
 }
+
+
+// Enhanced mobile hero section functionality
+function optimizeHeroForMobile() {
+    const hero = document.querySelector('.hero');
+    const heroContent = document.querySelector('.hero-content');
+    const codeAnimation = document.querySelector('.code-animation');
+    const techIcons = document.querySelector('.tech-icons');
+    
+    if (window.innerWidth <= 768) {
+        // Add mobile-specific classes
+        hero.classList.add('mobile-optimized');
+        
+        // Reorder elements for better mobile flow
+        if (heroContent && codeAnimation && techIcons) {
+            const heroContainer = hero.querySelector('.container');
+            if (heroContainer) {
+                // Clear existing content
+                heroContainer.innerHTML = '';
+                
+                // Rebuild in mobile-optimized order
+                heroContainer.appendChild(heroContent);
+                heroContainer.appendChild(techIcons);
+                heroContainer.appendChild(codeAnimation);
+            }
+        }
+        
+        // Add touch-friendly animations
+        document.querySelectorAll('.tech-icon').forEach(icon => {
+            icon.style.animation = 'mobileBounce 2s infinite ease-in-out';
+        });
+    }
+}
+
+// Initialize on load and resize
+document.addEventListener('DOMContentLoaded', function() {
+    optimizeHeroForMobile();
+    window.addEventListener('resize', optimizeHeroForMobile);
+    
+    // Add loading animation
+    const hero = document.querySelector('.hero');
+    hero.classList.add('loading');
+    
+    setTimeout(() => {
+        hero.classList.remove('loading');
+        hero.classList.add('loaded');
+    }, 100);
+});
+
+// Add smooth scrolling for mobile
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                // Close mobile menu if open
+                const nav = document.getElementById('nav');
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+                if (nav && nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    });
+});
