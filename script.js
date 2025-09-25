@@ -92,86 +92,131 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 
-// TikTok Video Functionality
-const tiktokContainers = document.querySelectorAll('.tiktok-video-container');
-const videoModal = document.createElement('div');
-videoModal.className = 'video-modal';
-videoModal.innerHTML = `
-    <div class="video-modal-content">
-        <button class="video-modal-close"><i class="fas fa-times"></i></button>
-        <iframe src="" frameborder="0" allowfullscreen></iframe>
-    </div>
-`;
+// Robotics Project Specific JavaScript
+function initRoboticsProject() {
+    // TikTok video functionality
+    const tiktokPlaceholder = document.querySelector('.tiktok-video-placeholder');
+    if (tiktokPlaceholder) {
+        tiktokPlaceholder.addEventListener('click', function(e) {
+            e.preventDefault();
+            const videoUrl = this.getAttribute('data-video-url');
+            openTikTokVideo(videoUrl);
+        });
+    }
+    
+    // Image modal functionality
+    const screenshotImages = document.querySelectorAll('.screenshot-item img');
+    screenshotImages.forEach(img => {
+        img.addEventListener('click', function() {
+            openImageModal(this.src, this.alt);
+        });
+    });
+}
 
-document.body.appendChild(videoModal);
-
-// Add click event to TikTok containers
-tiktokContainers.forEach(container => {
-    container.addEventListener('click', () => {
-        // Replace with your actual TikTok video URL
-        const tiktokUrl = "https://www.tiktok.com/@yourusername/video/1234567890";
-        const videoEmbedUrl = convertTiktokToEmbed(tiktokUrl);
-        
-        if (videoEmbedUrl) {
-            const iframe = videoModal.querySelector('iframe');
-            iframe.src = videoEmbedUrl;
-            videoModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        } else {
-            // Fallback: open in new tab
-            window.open(tiktokUrl, '_blank');
+function openTikTokVideo(videoUrl) {
+    // Create video modal
+    const videoModal = document.createElement('div');
+    videoModal.className = 'video-modal active';
+    videoModal.innerHTML = `
+        <div class="video-modal-content">
+            <button class="video-modal-close"><i class="fas fa-times"></i></button>
+            <div class="video-loading">
+                <i class="fas fa-robot fa-spin"></i>
+                <p>Loading robotics demo...</p>
+            </div>
+            <div class="video-container">
+                <iframe src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="video-fallback">
+                <p>Unable to load video. <a href="${videoUrl}" target="_blank">Open in TikTok</a></p>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(videoModal);
+    document.body.style.overflow = 'hidden';
+    
+    const iframe = videoModal.querySelector('iframe');
+    const embedUrl = convertTiktokToEmbed(videoUrl);
+    
+    if (embedUrl) {
+        iframe.src = embedUrl;
+        iframe.onload = () => {
+            videoModal.querySelector('.video-loading').style.display = 'none';
+        };
+    } else {
+        videoModal.querySelector('.video-loading').style.display = 'none';
+        videoModal.querySelector('.video-fallback').style.display = 'block';
+    }
+    
+    // Close functionality
+    const closeBtn = videoModal.querySelector('.video-modal-close');
+    closeBtn.addEventListener('click', () => {
+        videoModal.remove();
+        document.body.style.overflow = 'auto';
+    });
+    
+    videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) {
+            videoModal.remove();
+            document.body.style.overflow = 'auto';
         }
+    });
+}
+
+function openImageModal(src, alt = '') {
+    const imageModal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const imageCaption = document.getElementById('imageCaption');
+    
+    modalImage.src = src;
+    imageCaption.textContent = alt;
+    imageModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    // Close functionality
+    const closeBtn = imageModal.querySelector('.image-modal-close');
+    closeBtn.addEventListener('click', closeImageModal);
+    
+    imageModal.addEventListener('click', (e) => {
+        if (e.target === imageModal) {
+            closeImageModal();
+        }
+    });
+    
+    // Close with Escape key
+    document.addEventListener('keydown', function escapeHandler(e) {
+        if (e.key === 'Escape') {
+            closeImageModal();
+            document.removeEventListener('keydown', escapeHandler);
+        }
+    });
+}
+
+function closeImageModal() {
+    const imageModal = document.getElementById('imageModal');
+    imageModal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Initialize when project modal is opened
+document.querySelectorAll('.view-project[data-project="6"]').forEach(button => {
+    button.addEventListener('click', function() {
+        setTimeout(initRoboticsProject, 100);
     });
 });
 
-// Close video modal
-videoModal.querySelector('.video-modal-close').addEventListener('click', () => {
-    videoModal.classList.remove('active');
-    const iframe = videoModal.querySelector('iframe');
-    iframe.src = '';
-    document.body.style.overflow = 'auto';
-});
-
-// Close modal when clicking outside
-videoModal.addEventListener('click', (e) => {
-    if (e.target === videoModal) {
-        videoModal.classList.remove('active');
-        const iframe = videoModal.querySelector('iframe');
-        iframe.src = '';
-        document.body.style.overflow = 'auto';
-    }
-});
-
-// Function to convert TikTok URL to embed URL
+// TikTok URL conversion function
 function convertTiktokToEmbed(url) {
-    // This is a simplified version - you might need to adjust based on TikTok's embed requirements
     try {
-        const videoId = url.split('/video/')[1];
-        if (videoId) {
-            return `https://www.tiktok.com/embed/v2/${videoId}`;
+        if (url.includes('/video/')) {
+            const videoId = url.split('/video/')[1].split('?')[0];
+            if (videoId) {
+                return `https://www.tiktok.com/embed/v2/${videoId}`;
+            }
         }
     } catch (error) {
         console.error('Error converting TikTok URL:', error);
     }
     return null;
 }
-
-// Load TikTok embed script dynamically
-function loadTiktokEmbedScript() {
-    if (!document.querySelector('script[src="https://www.tiktok.com/embed.js"]')) {
-        const script = document.createElement('script');
-        script.src = 'https://www.tiktok.com/embed.js';
-        script.async = true;
-        document.body.appendChild(script);
-    }
-}
-
-// Load TikTok script when modal opens
-document.querySelectorAll('.view-project').forEach(button => {
-    button.addEventListener('click', (e) => {
-        const projectId = button.getAttribute('data-project');
-        if (projectId === '3') {
-            setTimeout(loadTiktokEmbedScript, 500);
-        }
-    });
-});
