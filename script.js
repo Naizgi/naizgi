@@ -90,3 +90,88 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+
+// TikTok Video Functionality
+const tiktokContainers = document.querySelectorAll('.tiktok-video-container');
+const videoModal = document.createElement('div');
+videoModal.className = 'video-modal';
+videoModal.innerHTML = `
+    <div class="video-modal-content">
+        <button class="video-modal-close"><i class="fas fa-times"></i></button>
+        <iframe src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+`;
+
+document.body.appendChild(videoModal);
+
+// Add click event to TikTok containers
+tiktokContainers.forEach(container => {
+    container.addEventListener('click', () => {
+        // Replace with your actual TikTok video URL
+        const tiktokUrl = "https://www.tiktok.com/@yourusername/video/1234567890";
+        const videoEmbedUrl = convertTiktokToEmbed(tiktokUrl);
+        
+        if (videoEmbedUrl) {
+            const iframe = videoModal.querySelector('iframe');
+            iframe.src = videoEmbedUrl;
+            videoModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        } else {
+            // Fallback: open in new tab
+            window.open(tiktokUrl, '_blank');
+        }
+    });
+});
+
+// Close video modal
+videoModal.querySelector('.video-modal-close').addEventListener('click', () => {
+    videoModal.classList.remove('active');
+    const iframe = videoModal.querySelector('iframe');
+    iframe.src = '';
+    document.body.style.overflow = 'auto';
+});
+
+// Close modal when clicking outside
+videoModal.addEventListener('click', (e) => {
+    if (e.target === videoModal) {
+        videoModal.classList.remove('active');
+        const iframe = videoModal.querySelector('iframe');
+        iframe.src = '';
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Function to convert TikTok URL to embed URL
+function convertTiktokToEmbed(url) {
+    // This is a simplified version - you might need to adjust based on TikTok's embed requirements
+    try {
+        const videoId = url.split('/video/')[1];
+        if (videoId) {
+            return `https://www.tiktok.com/embed/v2/${videoId}`;
+        }
+    } catch (error) {
+        console.error('Error converting TikTok URL:', error);
+    }
+    return null;
+}
+
+// Load TikTok embed script dynamically
+function loadTiktokEmbedScript() {
+    if (!document.querySelector('script[src="https://www.tiktok.com/embed.js"]')) {
+        const script = document.createElement('script');
+        script.src = 'https://www.tiktok.com/embed.js';
+        script.async = true;
+        document.body.appendChild(script);
+    }
+}
+
+// Load TikTok script when modal opens
+document.querySelectorAll('.view-project').forEach(button => {
+    button.addEventListener('click', (e) => {
+        const projectId = button.getAttribute('data-project');
+        if (projectId === '3') {
+            setTimeout(loadTiktokEmbedScript, 500);
+        }
+    });
+});
