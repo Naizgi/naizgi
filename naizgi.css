@@ -968,6 +968,170 @@ footer {
         justify-content: center;
     }
 
+    /* TikTok Video Styles */
+.tiktok-video-container {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #000000 0%, #2a2a3c 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tiktok-placeholder {
+    text-align: center;
+    color: white;
+    z-index: 2;
+}
+
+.tiktok-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #ff0050;
+    animation: pulse 2s infinite;
+}
+
+.tiktok-placeholder p {
+    color: white;
+    font-weight: 500;
+    margin: 0;
+}
+
+.tiktok-video-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff0050, #00f2ea, #ff0050);
+    opacity: 0.3;
+    transition: var(--transition);
+}
+
+.tiktok-video-container:hover::before {
+    opacity: 0.6;
+}
+
+.tiktok-video-container:hover .tiktok-placeholder {
+    transform: scale(1.1);
+}
+
+/* TikTok Embed Container */
+.tiktok-embed-container {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tiktok-embed-container blockquote {
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+/* Video Play Button */
+.video-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 3;
+}
+
+.video-play-button i {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-left: 5px;
+}
+
+.video-play-button:hover {
+    background: white;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Video Modal */
+.video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2001;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.video-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.video-modal-content {
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+}
+
+.video-modal iframe {
+    width: 100%;
+    height: 450px;
+    border-radius: var(--radius);
+}
+
+.video-modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.video-modal-close:hover {
+    color: var(--secondary);
+}
+
+/* Responsive adjustments for TikTok */
+@media (max-width: 768px) {
+    .tiktok-embed-container {
+        grid-column: 1;
+    }
+    
+    .video-modal iframe {
+        height: 300px;
+    }
+    
+    .tiktok-placeholder i {
+        font-size: 2rem;
+    }
+    
+    .tiktok-placeholder p {
+        font-size: 0.9rem;
+    }
+}
+
     .tech-icons {
         flex-wrap: wrap;
     }
