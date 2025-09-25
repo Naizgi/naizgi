@@ -173,7 +173,7 @@
 
         <div class="portfolio-item fade-in">
                     <div class="portfolio-media">
-                        <img src="grace_1.png" alt="School Management">
+                        <img src="grace_1.png" alt="grace paint">
                         <div class="portfolio-overlay">
                             <a href="#" class="view-project" data-project="4"><i class="fas fa-expand"></i></a>
                             <a href="gracepaintfactory.com"><i class="fas fa-external-link-alt"></i></a>
@@ -430,21 +430,25 @@
         </div>
         
         <div class="modal-screenshots">
-            <!-- TikTok Video Section -->
-            <div class="tiktok-video-section">
+            <!-- Video Player Section -->
+            <div class="video-player-section">
                 <div class="video-wrapper">
-                    <div class="tiktok-video-placeholder" id="roboticsVideoTrigger">
-                        <div class="video-thumbnail">
-                            <img src="robotics_thumbnail.jpg" alt="Robotics Assistant Demo" onerror="this.src='https://via.placeholder.com/600x400/2a2a3c/ffffff?text=Robotics+Demo+Video'">
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
+                    <video class="project-video" controls poster="robotics_thumbnail.jpg">
+                        <source src="robotics-demo.mp4" type="video/mp4">
+                        <source src="robotics-demo.webm" type="video/webm">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-controls">
+                        <button class="video-play-pause">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <div class="video-progress">
+                            <div class="progress-bar"></div>
                         </div>
-                        <div class="video-info">
-                            <i class="fab fa-tiktok"></i>
-                            <span>Watch Robotics Assistant in Action</span>
-                            <small>Click to view demo video</small>
-                        </div>
+                        <div class="video-time">0:00 / 0:00</div>
+                        <button class="video-fullscreen">
+                            <i class="fas fa-expand"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -459,6 +463,28 @@
         <div class="modal-description">
             <p>This robotics project involves creating an AI-powered assistant robot capable of understanding and responding to human interactions. The robot can assist with daily tasks, provide information, and interact naturally with users through voice commands and gestures.</p>
             
+            <div class="project-features">
+                <h4>Key Features</h4>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <i class="fas fa-microphone"></i>
+                        <span>Voice recognition and commands</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-eye"></i>
+                        <span>Computer vision for object detection</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-robot"></i>
+                        <span>Autonomous navigation</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-hands-helping"></i>
+                        <span>Gesture recognition</span>
+                    </div>
+                </div>
+            </div>
+            
             <div class="modal-tech">
                 <span class="tech-tag">Python</span>
                 <span class="tech-tag">ROS</span>
@@ -469,40 +495,14 @@
             </div>
             
             <div class="modal-links">
-                <a href="https://vm.tiktok.com/ZMAPFeXD9/" target="_blank" class="cta-button">
-                    <i class="fab fa-tiktok"></i> Watch on TikTok
+                <a href="robotics-demo.mp4" download class="cta-button">
+                    <i class="fas fa-download"></i> Download Video
                 </a>
                 <a href="#" class="cta-button" style="background: transparent; color: var(--primary); border: 2px solid var(--primary);">
                     <i class="fab fa-github"></i> Source Code
                 </a>
             </div>
         </div>
-    </div>
-</div>
-
-<!-- Simple Video Modal -->
-<div class="video-modal" id="videoModal">
-    <div class="video-modal-content">
-        <button class="video-modal-close" id="videoModalClose">
-            <i class="fas fa-times"></i>
-        </button>
-        <h4>Watch Robotics Demo</h4>
-        <p>This demo video shows the robotics assistant in action, demonstrating its capabilities and interactions.</p>
-        <div style="margin: 20px 0;">
-            <a href="https://vm.tiktok.com/ZMAPFeXD9/" target="_blank" class="cta-button">
-                <i class="fab fa-tiktok"></i> Watch on TikTok
-            </a>
-        </div>
-        <p><small>The video will open in a new tab</small></p>
-    </div>
-</div>
-
-<!-- Image Modal for Full-size Screenshots -->
-<div class="image-modal" id="imageModal">
-    <div class="image-modal-content">
-        <button class="image-modal-close"><i class="fas fa-times"></i></button>
-        <img src="" alt="Full size image" id="modalImage">
-        <div class="image-caption" id="imageCaption"></div>
     </div>
 </div>
             
